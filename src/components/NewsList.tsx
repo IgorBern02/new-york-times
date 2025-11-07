@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { getTopStories } from "../services/api";
-
-interface Article {
-  title: string;
-  abstract: string;
-  url: string;
-  multimedia?: { url: string; caption: string }[];
-}
+import { NewsCard } from "./NewsCard";
+import { SectionSelector } from "./SectionSelector";
+import type { Article } from "../types/news/news";
 
 export function NewsList() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -16,6 +12,7 @@ export function NewsList() {
   useEffect(() => {
     async function fetchData() {
       try {
+        setLoading(true);
         const data = await getTopStories(section);
         setArticles(data);
       } catch (error) {
@@ -35,40 +32,17 @@ export function NewsList() {
         Notícias: {section.charAt(0).toUpperCase() + section.slice(1)}
       </h1>
 
-      <div className="flex justify-center mb-6">
-        <select
-          value={section}
-          onChange={(e) => setSection(e.target.value)}
-          className="border rounded p-2"
-        >
-          <option value="technology">Technology</option>
-          <option value="world">World</option>
-          <option value="science">Science</option>
-          <option value="arts">Arts</option>
-        </select>
-      </div>
+      <SectionSelector value={section} onChange={setSection} />
 
       <div className="grid md:grid-cols-2 gap-6">
         {articles.map((article) => (
-          <a
+          <NewsCard
             key={article.url}
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border rounded-xl overflow-hidden shadow hover:shadow-lg transition"
-          >
-            {article.multimedia && article.multimedia[0] && (
-              <img
-                src={article.multimedia[0].url}
-                alt={article.title}
-                className="w-full h-56 object-cover"
-              />
-            )}
-            <div className="p-4">
-              <h2 className="text-lg font-semibold mb-2">{article.title}</h2>
-              <p className="text-gray-600">{article.abstract}</p>
-            </div>
-          </a>
+            title={article.title}
+            abstract={article.abstract}
+            url={article.url}
+            image={article.multimedia?.[0]?.url}
+          />
         ))}
       </div>
     </div>
