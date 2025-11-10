@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-gray-50 text-gray-900 transition-colors duration-300;
+  @apply bg-gray-50 text-gray-900 dark:text-white transition-colors duration-300 font-opensans;
 }
 
 .dark body {
@@ -16,4 +16,19 @@ body {
   --color-primary: #1e40af; /* azul */
   --color-secondary: #9333ea; /* roxo */
   --color-accent: #f97316; /* laranja */
+
+  --font-glory: "GloryRose", serif;
+  --font-opensans: "OpenSans", serif;
+}
+
+@font-face {
+  font-family: "GloryRose";
+  src: url("../assets/fonts/GloryRose") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
 }

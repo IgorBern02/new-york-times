@@ -17,7 +17,7 @@ export function MenuHamburguer({ dark }: MenuHamburguerProps) {
       {/* Botão do menu */}
       <button
         onClick={toggleMenu}
-        className="absolute right-4 top-3 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        className="lg:hidden absolute right-4 top-3 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
       >
         <img
           src={dark ? menuWhiteIcon : menuBlackIcon}
@@ -60,14 +60,6 @@ export function MenuHamburguer({ dark }: MenuHamburguerProps) {
           </a>
         </nav>
       </div>
-
-      {/* Fundo escuro (overlay) */}
-      {/* {isOpen && (
-        <div
-          onClick={toggleMenu}
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
-        ></div>
-      )} */}
     </>
   );
 }

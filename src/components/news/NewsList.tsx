@@ -43,17 +43,19 @@ export function NewsList() {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">
+      <h1 className="text-xl font-bold text-center mb-6">
         News: {section.charAt(0).toUpperCase() + section.slice(1)}
       </h1>
 
-      <input
-        type="text"
-        placeholder="Buscar notícia..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="border rounded p-2 w-full mb-4"
-      />
+      <div className="">
+        <input
+          type="text"
+          placeholder="Buscar notícia..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="border rounded p-2 w-full mb-4 text-black dark:text-white"
+        />
+      </div>
 
       <SectionSelector value={section} onChange={setSection} />
 

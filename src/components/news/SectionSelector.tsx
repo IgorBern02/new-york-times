@@ -8,7 +8,7 @@ export function SectionSelector({ value, onChange }: SectionSelectorProps) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border rounded p-2"
+        className="border rounded p-2 text-black dark:text-white text-base"
       >
         {sections.map((section) => (
           <option key={section} value={section}>

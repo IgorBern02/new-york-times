@@ -8,7 +8,7 @@ export function ThemeToggle({ dark, onToggle }: ThemeToggleProps) {
   return (
     <button
       onClick={onToggle}
-      className="flex items-center gap-2 bg-gray-200 dark:bg-gray-700 p-2 rounded transition cursor-pointer"
+      className="flex items-center gap-2 bg-gray-200 dark:bg-gray-700 p-2 rounded transition cursor-pointer text-base"
     >
       <img
         src={dark ? SunIcon : MoonIcon}
