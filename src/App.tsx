@@ -15,7 +15,7 @@ function App() {
       <section className="mt-20 flex flex-col items-center">
         <ThemeToggle dark={dark} onToggle={toggleDark} />
         <div className="mt-6 w-full max-w-4xl">
-          <NewsList />
+          <NewsList dark={dark} />
         </div>
       </section>
     </div>

@@ -4,8 +4,14 @@ import { NewsCard } from "./NewsCard";
 import { SectionSelector } from "./SectionSelector";
 import type { Article } from "../../types/news/news";
 import { NewsSkeleton } from "./NewsSkeleton";
+import SearchWhite from "../../assets/icons/search-white.png";
+import SearchBlack from "../../assets/icons/search-black.png";
 
-export function NewsList() {
+interface SearchProps {
+  dark: boolean;
+}
+
+export function NewsList({ dark }: SearchProps) {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [section, setSection] = useState("technology");
@@ -47,13 +53,18 @@ export function NewsList() {
         News: {section.charAt(0).toUpperCase() + section.slice(1)}
       </h1>
 
-      <div className="">
+      <div className="w-full flex flex-row items-center justify-center gap-2 p-2 border rounded mb-5">
         <input
           type="text"
           placeholder="Buscar notícia..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="border rounded p-2 w-full mb-4 text-black dark:text-white"
+          className="w-full text-black dark:text-white outline-none"
+        />
+        <img
+          src={dark ? SearchWhite : SearchBlack}
+          alt="Search"
+          className="w-6 h-6"
         />
       </div>
 
