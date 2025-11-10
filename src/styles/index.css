@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-gray-50 text-gray-900 dark:text-white transition-colors duration-300 font-opensans;
+  @apply bg-gray-50 text-gray-900 transition-colors duration-300;
 }
 
 .dark body {
@@ -17,18 +17,39 @@ body {
   --color-secondary: #9333ea; /* roxo */
   --color-accent: #f97316; /* laranja */
 
-  --font-glory: "GloryRose", serif;
-  --font-opensans: "OpenSans", serif;
+  --font-bebasneue: "BebasNeue", serif;
+  --font-merriweather: "Merriweather", serif;
+  --font-libreBaskerville: "LibreBaskerville", serif;
+  --font-anton: "Anton", serif;
 }
 
+/* Título principal */
 @font-face {
-  font-family: "GloryRose";
-  src: url("../assets/fonts/GloryRose") format("truetype");
+  font-family: "BebasNeue";
+  src: url("../assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+/* Subtítulo / Navegação / Data */
+@font-face {
+  font-family: "Merriweather";
+  src: url("../assets/fonts/Merriweather_24pt-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
+/* Corpo de texto e descrições de notícias  */
 @font-face {
-  font-family: "OpenSans";
-  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-family: "LibreBaskerville";
+  src: url("../assets/fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Cabeçalhos de seções  */
+@font-face {
+  font-family: "Anton";
+  src: url("../assets/fonts/Anton-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }

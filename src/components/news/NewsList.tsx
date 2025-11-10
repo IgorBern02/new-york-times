@@ -4,8 +4,7 @@ import { NewsCard } from "./NewsCard";
 import { SectionSelector } from "./SectionSelector";
 import type { Article } from "../../types/news/news";
 import { NewsSkeleton } from "./NewsSkeleton";
-import SearchWhite from "../../assets/icons/search-white.png";
-import SearchBlack from "../../assets/icons/search-black.png";
+import SearchIcon from "../../assets/icons/search.svg";
 
 interface SearchProps {
   dark: boolean;
@@ -62,16 +61,16 @@ export function NewsList({ dark }: SearchProps) {
           className="w-full text-black dark:text-white outline-none"
         />
         <img
-          src={dark ? SearchWhite : SearchBlack}
+          src={SearchIcon}
+          className={`w-6 h-6 ${dark ? "invert" : ""}`}
           alt="Search"
-          className="w-6 h-6"
         />
       </div>
 
       <SectionSelector value={section} onChange={setSection} />
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {articles.map((article) => (
+      {/* <div className="grid md:grid-cols-2 gap-6">
+        {filteredArticles.map((article) => (
           <NewsCard
             key={article.url}
             title={article.title}
@@ -80,7 +79,7 @@ export function NewsList({ dark }: SearchProps) {
             image={article.multimedia?.[0]?.url}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

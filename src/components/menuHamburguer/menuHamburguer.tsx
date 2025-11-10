@@ -1,8 +1,6 @@
 import { useState } from "react";
-import menuBlackIcon from "../../assets/icons/menu-black.png";
-import menuWhiteIcon from "../../assets/icons/menu-white.png";
-import closeWhiteIcon from "../../assets/icons/close-white.png";
-import closeBlackIcon from "../../assets/icons/close-black.png";
+import menuIcon from "../../assets/icons/menuIcon.svg";
+import closeIcon from "../../assets/icons/closeIcon.svg";
 interface MenuHamburguerProps {
   dark: boolean;
 }
@@ -17,12 +15,12 @@ export function MenuHamburguer({ dark }: MenuHamburguerProps) {
       {/* Botão do menu */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden absolute right-4 top-3 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        className="lg:hidden rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
       >
         <img
-          src={dark ? menuWhiteIcon : menuBlackIcon}
+          src={menuIcon}
+          className={`w-6 h-6 ${dark ? "invert" : ""}`}
           alt="menu"
-          className="w-6 h-6"
         />
       </button>
 
@@ -38,9 +36,9 @@ export function MenuHamburguer({ dark }: MenuHamburguerProps) {
             className="absolute right-4 top-3 text-gray-700 dark:text-gray-300 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
             <img
-              src={dark ? closeWhiteIcon : closeBlackIcon}
+              src={closeIcon}
+              className={`w-6 h-6 ${dark ? "invert" : ""}`}
               alt="menu"
-              className="w-6 h-6"
             />
           </button>
         </div>
