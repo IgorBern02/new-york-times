@@ -1,8 +1,8 @@
 // src/components/theme/ThemeToggle.tsx
-import MoonIcon from "../../assets/icons/moon.png";
-import SunIcon from "../../assets/icons/sun.png";
+import MoonIcon from "../../../assets/icons/moon.png";
+import SunIcon from "../../../assets/icons/sun.png";
 
-import type { HeaderProps } from "../../types/header/header";
+import type { HeaderProps } from "../types/header";
 
 export function ThemeToggle({ dark, onToggle }: HeaderProps) {
   return (

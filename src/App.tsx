@@ -1,8 +1,8 @@
 // App.tsx
 import { useState } from "react";
 import { Header } from "./components/header/Header";
-import { Nav } from "./components/nav/nav";
-import { useDarkMode } from "./components/theme/useDarkMode";
+import { Nav } from "./components/nav/Nav";
+import { useDarkMode } from "./components/header/hooks/useDarkMode";
 import { motion } from "framer-motion";
 import { NewsGrid } from "./components/news/NewsGrid";
 
