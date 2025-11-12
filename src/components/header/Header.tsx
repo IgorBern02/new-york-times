@@ -1,14 +1,12 @@
+import { LineUpHeader } from "./components/LineUpHeader";
 import { SearchBar } from "./components/SearchBar";
 import { SocialIcons } from "./components/SocialIcons";
 import type { HeaderProps } from "./types/header";
-import { LineUpHeader } from "./components/LineUpHeader";
 
-export function Header({ dark }: HeaderProps) {
+export function Header({ dark, onToggle }: HeaderProps) {
   return (
     <header className="text-black dark:text-white w-full flex flex-col items-center">
-      {/* Linha superior */}
-      <LineUpHeader dark={dark} />
-
+      <LineUpHeader dark={dark} onToggle={onToggle} />
       {/* Título + subtítulo + busca + ícones */}
       <div className="w-full mt-16 flex flex-col items-center py-5 border-b">
         <h1 className="font-bebasneue text-5xl font-bold">

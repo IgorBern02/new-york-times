@@ -1,10 +1,7 @@
-import { LineUpHeader } from "../header/components/LineUpHeader";
-import type { HeaderProps } from "../header/types/header";
 import { NewsCard, useNews, type NewsGridProps } from "../news";
 import { useNavigate } from "react-router-dom";
 
-type UniqueNewsProps = NewsGridProps & HeaderProps;
-export function UniqueNews({ section, text, dark }: UniqueNewsProps) {
+export function UniqueNews({ section, text }: NewsGridProps) {
   const { articles, loading, error } = useNews(section);
 
   const navigate = useNavigate();
@@ -19,8 +16,6 @@ export function UniqueNews({ section, text, dark }: UniqueNewsProps) {
 
   return (
     <section className="w-full mt-8 world-news-section">
-      <LineUpHeader dark={dark} />
-
       {/* Header da Seção */}
       <div className="flex flex-col items-center justify-between border-b-2 pb-3 mb-6">
         <h2 className="font-bebasneue text-7xl font-bold uppercase tracking-wide">

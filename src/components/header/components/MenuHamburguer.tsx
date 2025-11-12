@@ -1,21 +1,26 @@
 import { useState } from "react";
 import menuIcon from "../../../assets/icons/menuIcon.svg";
 import closeIcon from "../../../assets/icons/closeIcon.svg";
+import arrowToUp from "../../../assets/icons/arrowUp.svg";
+import arrowToDown from "../../../assets/icons/arrowDown.svg";
+import { Link } from "react-router-dom";
 interface MenuHamburguerProps {
   dark: boolean;
 }
 
 export function MenuHamburguer({ dark }: MenuHamburguerProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNewsOpen, setIsNewsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const toggleNews = () => setIsNewsOpen((prev) => !prev);
 
   return (
     <>
       {/* Botão do menu */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        className="rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
       >
         <img
           src={menuIcon}
@@ -44,18 +49,72 @@ export function MenuHamburguer({ dark }: MenuHamburguerProps) {
         </div>
 
         <nav className="h-screen bg-white dark:bg-gray-900 flex flex-col justify-center items-center gap-6 text-lg font-medium text-gray-700 dark:text-gray-200 z-10 ">
-          <a href="#" onClick={toggleMenu} className="hover:text-red-500">
+          <Link to="/" onClick={toggleMenu} className="hover:text-red-500">
             Home
-          </a>
-          <a href="#" onClick={toggleMenu} className="hover:text-red-500">
-            News
-          </a>
-          <a href="#" onClick={toggleMenu} className="hover:text-red-500">
+          </Link>
+          <div className="text-center">
+            <button
+              onClick={toggleNews}
+              className="flex items-center gap-1 hover:text-red-500 cursor-pointer"
+            >
+              News
+              <img
+                src={isNewsOpen ? arrowToUp : arrowToDown}
+                alt="arrow"
+                className={`w-4 h-4 ml-1 inline-block ${dark ? "invert" : ""}`}
+              />
+            </button>
+
+            {isNewsOpen && (
+              <div className="flex flex-col mt-2 space-y-2 font-semibold gap-1">
+                <Link
+                  to="/news/business"
+                  onClick={toggleMenu}
+                  className="hover:text-red-500"
+                >
+                  Business
+                </Link>
+                <Link
+                  to="/news/science"
+                  onClick={toggleMenu}
+                  className="hover:text-red-500"
+                >
+                  Science
+                </Link>
+                <Link
+                  to="/news/sundayreview"
+                  onClick={toggleMenu}
+                  className="hover:text-red-500"
+                >
+                  Sundayreview
+                </Link>
+                <Link
+                  to="/news/politics"
+                  onClick={toggleMenu}
+                  className="hover:text-red-500"
+                >
+                  Politics
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link
+            to="/breakingnews"
+            onClick={toggleMenu}
+            className="hover:text-red-500"
+          >
+            Breaking News
+          </Link>
+          <Link
+            to="/opinion"
+            onClick={toggleMenu}
+            className="hover:text-red-500"
+          >
+            Opinion
+          </Link>
+          <Link to="/about" onClick={toggleMenu} className="hover:text-red-500">
             About
-          </a>
-          <a href="#" onClick={toggleMenu} className="hover:text-red-500">
-            Contact
-          </a>
+          </Link>
         </nav>
       </div>
     </>
