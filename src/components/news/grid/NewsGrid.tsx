@@ -52,7 +52,7 @@ export const NewsGrid = ({ section }: NewsGridProps) => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 py-8"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 py-8"
     >
       <motion.div variants={item} className="space-y-4 col-span-1">
         {left.map((a) => (
@@ -69,7 +69,7 @@ export const NewsGrid = ({ section }: NewsGridProps) => {
 
       <motion.div
         variants={item}
-        className="space-y-4 col-span-1 lg:col-span-2"
+        className="space-y-4 col-span-1 md:hidden lg:flex"
       >
         <motion.div
           whileHover={{ scale: 1.01 }}
